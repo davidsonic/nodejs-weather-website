@@ -26,7 +26,12 @@ weatherForm.addEventListener('submit',(e)=>{
             messageOne.textContent = data.error
         }else{
             messageOne.textContent = location
-            messageTwo.textContent = data.forecast + ' ' + data.temperature + ' '
+            messageTwo.textContent = 'Localtime: ' + data.localtime + ' in ' + location + ' (' + data.latitude + ', ' + data.longitude + ').'
+             + ' The observation_time is ' + data.observation_time + '.' 
+             + ' The temperature is ' + data.temperature + ','
+             + ' the weather_descriptions are ' + data.weather_descriptions + ',' 
+            + ' the wind_speed is ' + data.wind_speed + ' and' 
+            + ' the precipation is ' + data.precipation + '.' 
         }
     })
 })

@@ -65,12 +65,19 @@ app.get('/weather', (req, res)=>{
                 error:error
             })
         }
-        forecast(latitude, longitude, (error, {temperature, weather_descriptions}) => {  //destructuring of data object
+        forecast(latitude, longitude, (error, data) => {  //destructuring of data object
             if(error) return res.send({error})
             res.send({
-                forecast: weather_descriptions,
-                temperature, 
-                location: req.query.address
+                weather_descriptions: data.weather_descriptions,
+                temperature: data.temperature, 
+                location: req.query.address,
+                latitude: data.latitude,
+                longitude: data.longitude,
+                precipation: data.precipation,
+                humidty: data.humidity,
+                wind_speed: data.wind_speed, 
+                observation_time: data.observation_time,
+                localtime: data.localtime
             })
           })
     })
